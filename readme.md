@@ -24,3 +24,9 @@ kubectl port-forward svc/argocd-server -n argocd 8080:443
 2. Applicationを登録
 
 web guiから`argocd-config.yaml`を登録する
+
+# 手動なこと
+## metallbのシークレット
+```
+kubectl create secret generic -n metallb-system memberlist --from-literal=secretkey="(openssl rand -base64 128)"
+```
