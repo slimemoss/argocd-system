@@ -26,6 +26,9 @@ kubectl port-forward svc/argocd-server -n argocd 8080:443
 web guiから`argocd-config.yaml`を登録する
 
 # 手動なこと
+## ルータのポート転送設定
+外部からのアクセスを`192.168.2.250`に渡すよう、ルータのポート設定を行う
+
 ## metallbのシークレット
 ```
 kubectl create secret generic -n metallb-system memberlist --from-literal=secretkey="(openssl rand -base64 128)"
