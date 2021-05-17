@@ -3,4 +3,4 @@ kind: Kustomization
 resources:
 - https://github.com/jetstack/cert-manager/releases/download/v1.3.1/cert-manager.yaml
 - cluster_issuer.yaml
-- https://raw.githubusercontent.com/slimemoss/argocd-system-secret/master/cert-manager/api_token.yaml?token=ATF3VHOMO2VAO52W3COOQCLAUICIG
+- https://raw.githubusercontent.com/slimemoss/argocd-system-secret/master/cert-manager/api_token.yaml
