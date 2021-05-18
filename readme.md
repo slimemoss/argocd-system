@@ -33,3 +33,8 @@ web guiから`argocd-config.yaml`を登録する
 ```
 kubectl create secret generic -n metallb-system memberlist --from-literal=secretkey="(openssl rand -base64 128)"
 ```
+
+## dns01 solversで使うcloudflareのapi tokenのsecret
+```
+read -s | xargs -I@ kubectl create secret generic -n cert-manager cloudflare-api-token-secret --from-literal=api-token=@
+```
