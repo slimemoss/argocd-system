@@ -1,0 +1,16 @@
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  creationTimestamp: null
+  name: memberlist
+  namespace: metallb-system
+spec:
+  encryptedData:
+    secretkey: AgCEm1K4V5iAU7CQNiVQ8mKPk7V74P32e38rye3tu7Ujx4KB+CVUHSX1gPmG8rwp3y/USWDoAZ3b4ygEu4lhWk8KyD1WpXSC+bBjXp5muux9DzZNzmlWIa/M33NqcFhd1IT7waH+2I/loSVm8q+IvxyqEgUAZtdwcHe2SGBI1kEBWq2K6eKzDNQfYbGmwT8tpRr+3D5ZRxfAwufXOKCYlijIox6yRlkS4+dk33NaUHpcEjTpqHDKazb7xryIhrqmMAelMpklwTRMcjM2oZVgGrj5F+DztMdTndPFPzg+vt86oVWnkyHEf5wh50bsvxd/I6402yYQnXaOTO4LMRoFf6ZO8QVCret2tAu2wLQ7Co3YGm1BrVDhA606b/KPeQ2fdrVuIJn8bQlUYs92p4qVm+Nve9NP5lW1cEtj9OavTRnTOfPphf5Ij6xyer9MVsuC/WUvRwijKnusSJZhXpzEPY8ThxGL9Ql+G84tS/99b6ehkWiUUgdXzX4ESF7NAS+b5phXDvc4Hzxi/WWJA/E34k99ArMftEJj/ktmfgeVrf7hzS4Z2/oTh63lELQe1FN/Px15PruNniQIK8czayv9+0zy2vCCYGz6/FdYZNnDf1dGhWqYZbV6L4FKgBPl34w6Cl+vIT8Y75JjHJZURtobXvKCOovzpc7MKXUhRTgyCTpUsG7z9zvGoU8PH9Xf9oQv4cEDQq0ddSehewOAMoKbW2qxA7CZ1n/qydHWGg==
+  template:
+    data: null
+    metadata:
+      creationTimestamp: null
+      name: memberlist
+      namespace: metallb-system
+
