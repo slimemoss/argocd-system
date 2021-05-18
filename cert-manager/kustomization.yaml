@@ -4,3 +4,4 @@ bases:
 resources:
 - https://github.com/jetstack/cert-manager/releases/download/v1.3.1/cert-manager.yaml
 - cluster_issuer.yaml
+- cloudflare-api-token.yaml
