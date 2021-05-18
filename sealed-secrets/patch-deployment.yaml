@@ -9,5 +9,5 @@ spec:
       containers:
       - env:
         - name: SEALED_SECRETS_UPDATE_STATUS
-          value: 1
+          value: "1"
         name: sealed-secrets-controller
