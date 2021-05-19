@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: argocd-dex-server
+spec:
+  template:
+    spec:
+      initContainers:
+      - image: alinbalutoiu/argocd:v2.0.0
+        name: copyutil
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: argocd-repo-server
+spec:
+  template:
+    spec:
+      containers:
+      - image: alinbalutoiu/argocd:v2.0.0
+        name: argocd-repo-server
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: argocd-server
+spec:
+  template:
+    spec:
+      containers:
+      - image: alinbalutoiu/argocd:v2.0.0
+        name: argocd-server
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: argocd-application-controller
+spec:
+  template:
+    spec:
+      containers:
+      - image: alinbalutoiu/argocd:v2.0.0
+        name: argocd-application-controller
