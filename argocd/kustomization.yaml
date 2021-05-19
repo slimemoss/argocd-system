@@ -4,3 +4,4 @@ resources:
 - https://raw.githubusercontent.com/argoproj/argo-cd/v2.0.0/manifests/install.yaml
 patchesStrategicMerge:
 - patch-arm64.yaml
+- patch-disable-service-tls.yaml
