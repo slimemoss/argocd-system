@@ -7,3 +7,5 @@ resources:
 - https://raw.githubusercontent.com/rook/rook/v1.6.2/cluster/examples/kubernetes/ceph/cluster.yaml
 - https://raw.githubusercontent.com/rook/rook/v1.6.2/cluster/examples/kubernetes/ceph/csi/rbd/storageclass.yaml
 - ingress.yaml
+patchesStrategicMerge:
+- patch-cephcluster.yaml
