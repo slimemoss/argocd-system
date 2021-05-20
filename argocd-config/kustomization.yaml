@@ -5,4 +5,5 @@ resources:
 - cert-manager.yaml
 - ingress-nginx.yaml
 - metallb.yaml
+- rook.yaml
 - sealed-secrets.yaml
