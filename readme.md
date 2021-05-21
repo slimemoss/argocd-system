@@ -4,8 +4,7 @@ s8sのリソースの中で、インフラ・システム寄りのものを管�
 # セットアップ
 ## argocdのインストール
 ```
-kubectl create namespace argocd
-curl https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml | sed "s@quay.io/argoproj/argocd@alinbalutoiu/argocd@g" | kubectl apply -n argocd -f -
+kustomize build . | k apply -f -
 ```
 
 ## Applicationの登録
