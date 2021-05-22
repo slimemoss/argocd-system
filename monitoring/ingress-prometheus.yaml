@@ -19,6 +19,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: prometheus-server
+                name: monitoring-prometheus-server
                 port:
                   number: 80
