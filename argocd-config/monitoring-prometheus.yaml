@@ -23,3 +23,5 @@ spec:
             storageClass: "rook-ceph-block"
           statefulSet:
             enabled: true
+        alertmanager:
+            enabled: false
