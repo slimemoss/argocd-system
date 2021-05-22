@@ -5,5 +5,7 @@ resources:
 - cert-manager.yaml
 - ingress-nginx.yaml
 - metallb.yaml
+- monitoring.yaml
+- monitoring-prometheus.yaml
 - rook.yaml
 - sealed-secrets.yaml
