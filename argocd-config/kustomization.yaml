@@ -7,5 +7,5 @@ resources:
 - metallb.yaml
 - monitoring.yaml
 - monitoring-prometheus.yaml
-- rook.yaml
+# - rook.yaml
 - sealed-secrets.yaml
