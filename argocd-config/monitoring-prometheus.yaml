@@ -15,7 +15,7 @@ spec:
   source:
     repoURL: https://prometheus-community.github.io/helm-charts
     chart: prometheus
-    targetRevision: prometheus-14.1.0
+    targetRevision: 18de98e1638da09ee30dfaf8b486a71f207fc116
     helm:
       values: |
         server:
