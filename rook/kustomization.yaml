@@ -1,11 +1,11 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-- https://raw.githubusercontent.com/rook/rook/v1.5.11/cluster/examples/kubernetes/ceph/crds.yaml
-- https://raw.githubusercontent.com/rook/rook/v1.5.11/cluster/examples/kubernetes/ceph/common.yaml
-- https://raw.githubusercontent.com/rook/rook/v1.5.11/cluster/examples/kubernetes/ceph/operator.yaml
-- https://raw.githubusercontent.com/rook/rook/v1.5.11/cluster/examples/kubernetes/ceph/cluster.yaml
-- https://raw.githubusercontent.com/rook/rook/v1.5.11/cluster/examples/kubernetes/ceph/csi/rbd/storageclass.yaml
+- https://raw.githubusercontent.com/rook/rook/v1.5.12/cluster/examples/kubernetes/ceph/crds.yaml
+- https://raw.githubusercontent.com/rook/rook/v1.5.12/cluster/examples/kubernetes/ceph/common.yaml
+- https://raw.githubusercontent.com/rook/rook/v1.5.12/cluster/examples/kubernetes/ceph/operator.yaml
+- https://raw.githubusercontent.com/rook/rook/v1.5.12/cluster/examples/kubernetes/ceph/cluster.yaml
+- https://raw.githubusercontent.com/rook/rook/v1.5.12/cluster/examples/kubernetes/ceph/csi/rbd/storageclass.yaml
 - ingress.yaml
 patchesStrategicMerge:
 - patch-cephcluster.yaml

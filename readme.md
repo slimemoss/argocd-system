@@ -2,8 +2,15 @@
 s8sのリソースの中で、インフラ・システム寄りのものを管理するargocdリポジトリ
 
 # セットアップ
+## rookのデプロイ
+```
+cd ./rook
+kustomize build . | k apply -f -
+```
+
 ## argocdのインストール
 ```
+cd ./argocd
 kustomize build . | k apply -f -
 ```
 
