@@ -9,4 +9,3 @@ resources:
 - monitoring-grafana.yaml
 - monitoring-prometheus.yaml
 # - rook.yaml
-- sealed-secrets.yaml
