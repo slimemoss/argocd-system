@@ -2,23 +2,17 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: gitlab-runner
-  namespace: gitlab-runner
+  namespace: argocd
 spec:
   project: default
+  source:
+    repoURL: https://github.com/slimemoss/argocd-system.git
+    targetRevision: master
+    path: gitlab-runner
   destination:
     server: https://kubernetes.default.svc
-    namespace: gitlab-runner
+    namespace: default
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
-  source:
-    repoURL: https://charts.gitlab.io
-    chart: gitlab/gitlab-runner
-    helm:
-      values: |
-        gitlabUrl: https://gitlab.com/
-        rbac:
-          create: true
-        runners:
-          secret: gitlab-runner-secret
