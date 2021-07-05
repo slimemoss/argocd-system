@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: gitlab-runner
+  namespace: gitlab-runner
+spec:
+  project: default
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: gitlab-runner
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+  source:
+    repoURL: https://charts.gitlab.io
+    chart: gitlab/gitlab-runner
+    helm:
+      values: |
+        gitlabUrl: https://gitlab.com/
+        rbac:
+          create: true
+        runners:
+          secret: gitlab-runner-secret

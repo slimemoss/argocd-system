@@ -3,6 +3,7 @@ kind: Kustomization
 resources:
 - argocd.yaml
 - cert-manager.yaml
+- gitlab-runner.yaml
 - ingress-nginx.yaml
 - metallb.yaml
 - monitoring.yaml
