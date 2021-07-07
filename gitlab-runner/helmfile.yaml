@@ -1,0 +1,14 @@
+repositories:
+  - name: gitlab
+    url: https://charts.gitlab.io
+releases:
+  - name: slimemoss-runner
+    namespace: gitlab-runner
+    createNamespace: true
+    chart: gitlab/gitlab-runner
+    values:
+      - gitlabUrl: https://gitlab.com/
+      - rbac:
+          create: true
+      - runners:
+          secret: gitlab-runner-secret

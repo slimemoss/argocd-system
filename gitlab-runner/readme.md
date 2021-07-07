@@ -1,0 +1,4 @@
+# GitLab Runnerのデプロイ
+```
+helmfile sync
+```
