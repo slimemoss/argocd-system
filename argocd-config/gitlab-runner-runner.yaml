@@ -15,7 +15,7 @@ spec:
   source:
     repoURL: https://charts.gitlab.io
     chart: gitlab/gitlab-runner
-    targetRevision: master
+    targetRevision: *
     helm:
       values: |
         gitlabUrl: https://gitlab.com/
