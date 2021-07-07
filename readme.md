@@ -8,6 +8,12 @@ cd ./rook
 kustomize build . | k apply -f -
 ```
 
+## gitlab-runnerのデプロイ
+```
+cd ./gitlab-runner
+helmfile sync
+```
+
 ## argocdのインストール
 ```
 cd ./argocd
@@ -15,21 +21,23 @@ kustomize build . | k apply -f -
 ```
 
 ## Applicationの登録
-
-1. web guiにアクセス
-
+### argocdへのログイン
 ```
-kubectl port-forward svc/argocd-server -n argocd 8080:443
+argocd --port-forward --port-forward-namespace argocd \
+login localhost:8080 --name admin --username admin --password (kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath={.data.password} | base64 -d)
 ```
 
-[web gui](localhost:8080)
+### private repositoryの認証
+```
+read -s | xargs -I@ argocd --port-forward --port-forward-namespace argocd \
+repo add https://github.com/slimemoss/argocd-system.git --username slimemoss --password @
+```
 
-ユーザーは`admin` パスワードは`kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath={.data.password} | base64 -d | xsel --clipboard --input`
-
-
-2. Applicationを登録
-
-web guiから`argocd-config.yaml`を登録する
+### デプロイ
+```
+argocd --port-forward --port-forward-namespace argocd \
+app create -f argocd-config.yaml
+```
 
 # 手動なこと
 ## ルータのポート転送設定

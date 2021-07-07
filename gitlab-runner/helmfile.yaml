@@ -2,7 +2,7 @@ repositories:
   - name: gitlab
     url: https://charts.gitlab.io
 releases:
-  - name: slimemoss-runner
+  - name: runner
     namespace: gitlab-runner
     createNamespace: true
     chart: gitlab/gitlab-runner
