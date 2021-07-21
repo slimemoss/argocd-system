@@ -1,14 +1,19 @@
 repositories:
-  - name: gitlab
-    url: https://charts.gitlab.io
+- name: gitlab
+  url: https://charts.gitlab.io
 releases:
-  - name: runner
-    namespace: gitlab-runner
-    createNamespace: true
-    chart: gitlab/gitlab-runner
-    values:
-      - gitlabUrl: https://gitlab.com/
-      - rbac:
-          create: true
-      - runners:
-          secret: gitlab-runner-secret
+- name: runner
+  namespace: gitlab-runner
+  createNamespace: true
+  chart: gitlab/gitlab-runner
+  values:
+  - gitlabUrl: https://gitlab.com/
+  - rbac:
+      create: true
+  - runners:
+      secret: gitlab-runner-secret
+      tags: "armv8, arm, arm64, s8s"
+      config: |
+        [[runners]]
+          [runners.kubernetes]
+            helper_image = "gitlab/gitlab-runner-helper:arm-${CI_RUNNER_REVISION}"
