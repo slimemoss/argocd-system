@@ -19,9 +19,14 @@ spec:
     helm:
       values: |
         server:
+          image:
+            tag: v2.24.0
           persistentVolume:
             storageClass: "rook-ceph-block"
           statefulSet:
             enabled: true
         alertmanager:
             enabled: false
+        nodeExporter:
+          image:
+            tag: v1.0.1
