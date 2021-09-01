@@ -12,8 +12,3 @@ releases:
       create: true
   - runners:
       secret: gitlab-runner-secret
-      tags: "armv8, arm, arm64, s8s"
-      config: |
-        [[runners]]
-          [runners.kubernetes]
-            helper_image = "gitlab/gitlab-runner-helper:arm-${CI_RUNNER_REVISION}"

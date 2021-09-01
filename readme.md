@@ -1,23 +1,52 @@
 # argocd-system
-s8sのリソースの中で、インフラ・システム寄りのものを管理するargocdリポジトリ
+x8sのリソースの中で、インフラ・システム寄りのものを管理するargocdリポジトリ
 
 # セットアップ
-## rookのデプロイ
+## gitlab, argocdを有効にするための準備
+gitlab, argocdをオンプレで使うために、各リソースをデプロイします。
+
+### デプロイ
 ```
-cd ./rook
-kustomize build . | k apply -f -
+kustomize build cert-manager | k apply -f -
+kustomize build ingress-nginx | k apply -f -
+kustomize build metallb | k apply -f -
+kustomize build rook | k apply -f -
 ```
 
-## gitlab-runnerのデプロイ
+### シークレットのデプロイ
+
+* `metallb`: `secretkey`
+* `cert-manager`: `api-token`
+
 ```
-cd ./gitlab-runner
+k apply -f ../argocd-system-secret/argocd-config/cert-manager.yaml
+k apply -f ../argocd-system-secret/argocd-config/metallb.yaml
+```
+
+### テスト
+```
+k apply -f ./test/ingress-test.yaml
+curl https://ingress-test.slimemoss.com
+openssl s_client -connect ingress-test.slimemoss.com:443 -showcerts < /dev/null 2> /dev/null | openssl x509 -noout -subject -in -
+```
+
+## 手動デプロイ
+
+### gitlabのデプロイ
+```
+kubectl apply -f ./gitlab/certificate.yaml
+cd ./gitlab/helm
 helmfile sync
 ```
-
-## argocdのインストール
+### argocdのデプロイ
 ```
-cd ./argocd
-kustomize build . | k apply -f -
+kustomize build argocd | k apply -f -
+```
+
+### gitlab-runnerのデプロイ
+```
+cd ./gitlab-runner/helm
+helmfile sync
 ```
 
 ## Applicationの登録
