@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: argocd-image-updater
+spec:
+  template:
+    spec:
+      containers:
+      - name: argocd-image-updater
+        command:
+        - /usr/local/bin/argocd-image-updater
+        - run
+        - --interval=120s
+        - --loglevel=debug
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-image-updater-config
+data:
+  registries.conf: |
+    registries:
+    - name: Gitlab Registry
+      api_url: https://registry.gitlab.com
+      prefix: registry.gitlab.com
+      ping: no
+      insecure: yes

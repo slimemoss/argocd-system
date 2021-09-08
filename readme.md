@@ -31,13 +31,6 @@ openssl s_client -connect ingress-test.slimemoss.com:443 -showcerts < /dev/null 
 ```
 
 ## 手動デプロイ
-
-### gitlabのデプロイ
-```
-kubectl apply -f ./gitlab/certificate.yaml
-cd ./gitlab/helm
-helmfile sync
-```
 ### argocdのデプロイ
 ```
 kustomize build argocd | k apply -f -
