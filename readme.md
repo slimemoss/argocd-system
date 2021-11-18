@@ -63,4 +63,4 @@ app create -f argocd-config.yaml
 
 # 手動なこと
 ## ルータのポート転送設定
-外部からのアクセスを`192.168.2.250`に渡すよう、ルータのポート設定を行う
+外部からのアクセスを`metallb/configmap.yaml data.config.address-pools[0].addresses[0]`に渡すよう、ルータのポート設定を行う

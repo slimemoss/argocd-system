@@ -1,0 +1,41 @@
+global:
+  hosts:
+    domain: slimemoss.com
+  ingress:
+    configureCertmanager: false
+    class: nginx
+    tls:
+      secretName: gitlab-wildcard-tls
+
+redis:
+  global:
+    storageClass: rook-ceph-block
+
+postgresql:
+  global:
+    storageClass: rook-ceph-block
+
+minio:
+  persistence:
+    storageClass: rook-ceph-block
+
+certmanager:
+  install: false
+
+nginx-ingress:
+  enabled: false
+
+prometheus:
+  install: false
+
+gitlab-runner:
+  install: false
+
+gitlab:
+  gitaly:
+    persistence:
+      enabled: true
+      storageClass: rook-ceph-block
+      accessMode: ReadWriteOnce
+      size: 100Gi
+
