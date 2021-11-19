@@ -9,5 +9,6 @@ resources:
 - https://raw.githubusercontent.com/rook/rook/v1.7.7/cluster/examples/kubernetes/ceph/csi/rbd/storageclass.yaml
 - https://raw.githubusercontent.com/rook/rook/v1.7.7/cluster/examples/kubernetes/ceph/monitoring/rbac.yaml
 - ingress.yaml
+- objectstorage.yaml
 patchesStrategicMerge:
 - patch-cephcluster.yaml

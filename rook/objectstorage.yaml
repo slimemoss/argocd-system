@@ -1,0 +1,61 @@
+apiVersion: ceph.rook.io/v1
+kind: CephObjectStore
+metadata:
+  name: my-store
+  namespace: rook-ceph
+spec:
+  metadataPool:
+    failureDomain: host
+    replicated:
+      size: 3
+  dataPool:
+    failureDomain: host
+    erasureCoded:
+      dataChunks: 2
+      codingChunks: 1
+  preservePoolsOnDelete: true
+  gateway:
+    sslCertificateRef:
+    port: 80
+    # securePort: 443
+    instances: 2
+  healthCheck:
+    bucket:
+      disabled: false
+      interval: 60s
+---
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+   name: rook-ceph-bucket
+provisioner: rook-ceph.ceph.rook.io/bucket
+reclaimPolicy: Delete
+parameters:
+  objectStoreName: my-store
+  objectStoreNamespace: rook-ceph
+  region: us-east-1
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: my-store
+  namespace: rook-ceph
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    cert-manager.io/cluster-issuer: "letsencrypt-cloudflare"
+spec:
+  tls:
+  - hosts:
+    - '*.slimemoss.com'
+    secretName: slimemoss-tls-secret
+  rules:
+    - host: my-store.slimemoss.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: rook-ceph-rgw-my-store
+                port:
+                  number: 80
