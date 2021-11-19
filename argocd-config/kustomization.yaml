@@ -8,3 +8,5 @@ resources:
 - monitoring.yaml
 - monitoring-grafana.yaml
 - monitoring-prometheus.yaml
+# - rook.yaml
+
